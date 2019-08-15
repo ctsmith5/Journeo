@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0C52304541F0001E40E /* AppDelegate.swift */; };
+		AF7DE0CB2304541F0001E40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0C92304541F0001E40E /* Main.storyboard */; };
+		AF7DE0CD230454270001E40E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0CC230454270001E40E /* Assets.xcassets */; };
+		AF7DE0D0230454270001E40E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0CE230454270001E40E /* LaunchScreen.storyboard */; };
+		AF7DE0DB230454270001E40E /* Journeo2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0DA230454270001E40E /* Journeo2Tests.swift */; };
+		AF7DE0E82304544A0001E40E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7DE0E72304544A0001E40E /* CloudKit.framework */; };
+		AF7DE0EF2304554A0001E40E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0EE2304554A0001E40E /* Entry.swift */; };
+		AF7DE0F1230457CF0001E40E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0F0230457CF0001E40E /* Photo.swift */; };
+		AF7DE0F323046F290001E40E /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0F223046F290001E40E /* EditEntryViewController.swift */; };
+		AF7DE0F523046F580001E40E /* EditEntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0F423046F580001E40E /* EditEntryTextView.swift */; };
+		AF7DE0F7230473BF0001E40E /* ReadEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0F6230473BF0001E40E /* ReadEntryViewController.swift */; };
+		AF7DE0F9230473EC0001E40E /* ArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0F8230473EC0001E40E /* ArchiveTableViewController.swift */; };
+		AF7DE0FB230492BA0001E40E /* CloudkitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0FA230492BA0001E40E /* CloudkitController.swift */; };
+		AF7DE0FD2304A39F0001E40E /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0FC2304A39F0001E40E /* MonthPickerView.swift */; };
+		AF7DE0FF2304A3B30001E40E /* YearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0FE2304A3B30001E40E /* YearPickerView.swift */; };
+		AF7DE1012304ABFB0001E40E /* ArchiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE1002304ABFB0001E40E /* ArchiveTableViewCell.swift */; };
+		AF7DE1032304C4190001E40E /* EntryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE1022304C4190001E40E /* EntryPhotoCollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF7DE0D7230454270001E40E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF7DE0BA2304541F0001E40E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF7DE0C12304541F0001E40E;
+			remoteInfo = Journeo2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AF7DE0C22304541F0001E40E /* Journeo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journeo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7DE0C52304541F0001E40E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF7DE0CA2304541F0001E40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF7DE0CC230454270001E40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF7DE0CF230454270001E40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF7DE0D1230454270001E40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF7DE0D6230454270001E40E /* Journeo2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Journeo2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF7DE0DA230454270001E40E /* Journeo2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journeo2Tests.swift; sourceTree = "<group>"; };
+		AF7DE0DC230454270001E40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF7DE0E5230454480001E40E /* Journeo2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Journeo2.entitlements; sourceTree = "<group>"; };
+		AF7DE0E72304544A0001E40E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		AF7DE0EE2304554A0001E40E /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		AF7DE0F0230457CF0001E40E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		AF7DE0F223046F290001E40E /* EditEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
+		AF7DE0F423046F580001E40E /* EditEntryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryTextView.swift; sourceTree = "<group>"; };
+		AF7DE0F6230473BF0001E40E /* ReadEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadEntryViewController.swift; sourceTree = "<group>"; };
+		AF7DE0F8230473EC0001E40E /* ArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewController.swift; sourceTree = "<group>"; };
+		AF7DE0FA230492BA0001E40E /* CloudkitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitController.swift; sourceTree = "<group>"; };
+		AF7DE0FC2304A39F0001E40E /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
+		AF7DE0FE2304A3B30001E40E /* YearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPickerView.swift; sourceTree = "<group>"; };
+		AF7DE1002304ABFB0001E40E /* ArchiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewCell.swift; sourceTree = "<group>"; };
+		AF7DE1022304C4190001E40E /* EntryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF7DE0BF2304541F0001E40E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7DE0E82304544A0001E40E /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF7DE0D3230454270001E40E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF7DE0B92304541F0001E40E = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0C42304541F0001E40E /* Journeo2 */,
+				AF7DE0D9230454270001E40E /* Journeo2Tests */,
+				AF7DE0C32304541F0001E40E /* Products */,
+				AF7DE0E62304544A0001E40E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AF7DE0C32304541F0001E40E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0C22304541F0001E40E /* Journeo2.app */,
+				AF7DE0D6230454270001E40E /* Journeo2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF7DE0C42304541F0001E40E /* Journeo2 */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0ED2304547C0001E40E /* Views */,
+				AF7DE0EC2304547A0001E40E /* ViewControllers */,
+				AF7DE0EB230454780001E40E /* ModelControllers */,
+				AF7DE0EA230454760001E40E /* Models */,
+				AF7DE0E9230454750001E40E /* Resources */,
+				AF7DE0E5230454480001E40E /* Journeo2.entitlements */,
+			);
+			path = Journeo2;
+			sourceTree = "<group>";
+		};
+		AF7DE0D9230454270001E40E /* Journeo2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0DA230454270001E40E /* Journeo2Tests.swift */,
+				AF7DE0DC230454270001E40E /* Info.plist */,
+			);
+			path = Journeo2Tests;
+			sourceTree = "<group>";
+		};
+		AF7DE0E62304544A0001E40E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0E72304544A0001E40E /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF7DE0E9230454750001E40E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0C52304541F0001E40E /* AppDelegate.swift */,
+				AF7DE0C92304541F0001E40E /* Main.storyboard */,
+				AF7DE0CC230454270001E40E /* Assets.xcassets */,
+				AF7DE0CE230454270001E40E /* LaunchScreen.storyboard */,
+				AF7DE0D1230454270001E40E /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AF7DE0EA230454760001E40E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0EE2304554A0001E40E /* Entry.swift */,
+				AF7DE0F0230457CF0001E40E /* Photo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AF7DE0EB230454780001E40E /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0FA230492BA0001E40E /* CloudkitController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		AF7DE0EC2304547A0001E40E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0F223046F290001E40E /* EditEntryViewController.swift */,
+				AF7DE0F6230473BF0001E40E /* ReadEntryViewController.swift */,
+				AF7DE0F8230473EC0001E40E /* ArchiveTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AF7DE0ED2304547C0001E40E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE0F423046F580001E40E /* EditEntryTextView.swift */,
+				AF7DE0FC2304A39F0001E40E /* MonthPickerView.swift */,
+				AF7DE0FE2304A3B30001E40E /* YearPickerView.swift */,
+				AF7DE1002304ABFB0001E40E /* ArchiveTableViewCell.swift */,
+				AF7DE1022304C4190001E40E /* EntryPhotoCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF7DE0C12304541F0001E40E /* Journeo2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF7DE0DF230454270001E40E /* Build configuration list for PBXNativeTarget "Journeo2" */;
+			buildPhases = (
+				AF7DE0BE2304541F0001E40E /* Sources */,
+				AF7DE0BF2304541F0001E40E /* Frameworks */,
+				AF7DE0C02304541F0001E40E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Journeo2;
+			productName = Journeo2;
+			productReference = AF7DE0C22304541F0001E40E /* Journeo2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF7DE0D5230454270001E40E /* Journeo2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF7DE0E2230454270001E40E /* Build configuration list for PBXNativeTarget "Journeo2Tests" */;
+			buildPhases = (
+				AF7DE0D2230454270001E40E /* Sources */,
+				AF7DE0D3230454270001E40E /* Frameworks */,
+				AF7DE0D4230454270001E40E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF7DE0D8230454270001E40E /* PBXTargetDependency */,
+			);
+			name = Journeo2Tests;
+			productName = Journeo2Tests;
+			productReference = AF7DE0D6230454270001E40E /* Journeo2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF7DE0BA2304541F0001E40E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Colin Smith";
+				TargetAttributes = {
+					AF7DE0C12304541F0001E40E = {
+						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					AF7DE0D5230454270001E40E = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = AF7DE0C12304541F0001E40E;
+					};
+				};
+			};
+			buildConfigurationList = AF7DE0BD2304541F0001E40E /* Build configuration list for PBXProject "Journeo2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF7DE0B92304541F0001E40E;
+			productRefGroup = AF7DE0C32304541F0001E40E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF7DE0C12304541F0001E40E /* Journeo2 */,
+				AF7DE0D5230454270001E40E /* Journeo2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF7DE0C02304541F0001E40E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7DE0D0230454270001E40E /* LaunchScreen.storyboard in Resources */,
+				AF7DE0CD230454270001E40E /* Assets.xcassets in Resources */,
+				AF7DE0CB2304541F0001E40E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF7DE0D4230454270001E40E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF7DE0BE2304541F0001E40E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7DE0F1230457CF0001E40E /* Photo.swift in Sources */,
+				AF7DE0FD2304A39F0001E40E /* MonthPickerView.swift in Sources */,
+				AF7DE0EF2304554A0001E40E /* Entry.swift in Sources */,
+				AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */,
+				AF7DE0F7230473BF0001E40E /* ReadEntryViewController.swift in Sources */,
+				AF7DE0FF2304A3B30001E40E /* YearPickerView.swift in Sources */,
+				AF7DE1012304ABFB0001E40E /* ArchiveTableViewCell.swift in Sources */,
+				AF7DE0F9230473EC0001E40E /* ArchiveTableViewController.swift in Sources */,
+				AF7DE1032304C4190001E40E /* EntryPhotoCollectionViewCell.swift in Sources */,
+				AF7DE0F523046F580001E40E /* EditEntryTextView.swift in Sources */,
+				AF7DE0FB230492BA0001E40E /* CloudkitController.swift in Sources */,
+				AF7DE0F323046F290001E40E /* EditEntryViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF7DE0D2230454270001E40E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7DE0DB230454270001E40E /* Journeo2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF7DE0D8230454270001E40E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF7DE0C12304541F0001E40E /* Journeo2 */;
+			targetProxy = AF7DE0D7230454270001E40E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AF7DE0C92304541F0001E40E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF7DE0CA2304541F0001E40E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF7DE0CE230454270001E40E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF7DE0CF230454270001E40E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF7DE0DD230454270001E40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF7DE0DE230454270001E40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF7DE0E0230454270001E40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Journeo2/Journeo2.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2779EQ3QB6;
+				INFOPLIST_FILE = "$(SRCROOT)/Journeo2/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.colinsmith.Journeo2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF7DE0E1230454270001E40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Journeo2/Journeo2.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2779EQ3QB6;
+				INFOPLIST_FILE = "$(SRCROOT)/Journeo2/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.colinsmith.Journeo2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF7DE0E3230454270001E40E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2779EQ3QB6;
+				INFOPLIST_FILE = Journeo2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.colinsmith.Journeo2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Journeo2.app/Journeo2";
+			};
+			name = Debug;
+		};
+		AF7DE0E4230454270001E40E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2779EQ3QB6;
+				INFOPLIST_FILE = Journeo2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.colinsmith.Journeo2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Journeo2.app/Journeo2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF7DE0BD2304541F0001E40E /* Build configuration list for PBXProject "Journeo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7DE0DD230454270001E40E /* Debug */,
+				AF7DE0DE230454270001E40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF7DE0DF230454270001E40E /* Build configuration list for PBXNativeTarget "Journeo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7DE0E0230454270001E40E /* Debug */,
+				AF7DE0E1230454270001E40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF7DE0E2230454270001E40E /* Build configuration list for PBXNativeTarget "Journeo2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF7DE0E3230454270001E40E /* Debug */,
+				AF7DE0E4230454270001E40E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF7DE0BA2304541F0001E40E /* Project object */;
+}
