@@ -12,10 +12,14 @@ import CloudKit
 
 class Entry {
     
-    let title: String
-    let body: String
+    var title: String
+    // photodata
+    
+    var body: String
     let timestamp: Date
     let location: CLLocation
+    //image
+    
     let recordID: CKRecord.ID
     
     init(title: String, body: String, timestamp: Date = Date(), location: CLLocation = CLLocation(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)){

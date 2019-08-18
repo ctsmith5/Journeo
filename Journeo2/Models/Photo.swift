@@ -40,7 +40,7 @@ class Photo {
         }
     }
     
-    init(entryReference: CKRecord.Reference, caption: String?, index: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), photograph: UIImage) {
+    init(entryReference: CKRecord.Reference, caption: String?, index: Int, recordID: CKRecord.ID, photograph: UIImage) {
         self.entryReference = entryReference
         self.caption = caption
         self.index = index
@@ -50,12 +50,14 @@ class Photo {
     
     init?(ckRecord: CKRecord) {
         do{
-            guard let caption = ckRecord[PhotoConstants.captionKey] as? String,
-                let reference = ckRecord[PhotoConstants.referenceKey] as? CKRecord.Reference,
-                let photoAsset = ckRecord[PhotoConstants.photographKey] as? CKAsset,
-                let index = ckRecord[PhotoConstants.indexKey] as? Int
-                else { return nil}
             
+            guard let caption = ckRecord[PhotoConstants.captionKey] as? String? else {print("failing the caption") ; return nil}
+            guard let reference = ckRecord[PhotoConstants.referenceKey] as? CKRecord.Reference else {print("failing the EntryReference") ; return nil}
+            guard let photoAsset = ckRecord[PhotoConstants.photographKey] as? CKAsset else {print("failing the ckAsset") ; return nil}
+            
+            //FIXME: - We found the record converting problem
+            guard let index = ckRecord[PhotoConstants.indexKey] as? Int else {print("failing the int") ; return nil}
+        
             let photoData = try Data(contentsOf: photoAsset.fileURL!)
             
             self.caption = caption
@@ -76,7 +78,7 @@ extension CKRecord {
         self.setValue(photo.caption, forKey: PhotoConstants.captionKey)
         self.setValue(photo.entryReference, forKey: PhotoConstants.referenceKey)
         self.setValue(photo.imageAsset, forKey: PhotoConstants.photographKey)
-        
+        self.setValue(photo.index, forKey: PhotoConstants.indexKey)
     }
 }
 
@@ -87,5 +89,4 @@ struct PhotoConstants {
     static let photographKey = "Photograph"
     static let referenceKey = "EntryReference"
     static let indexKey = "Index"
-    
 }

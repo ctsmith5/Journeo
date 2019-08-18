@@ -25,18 +25,30 @@ class ArchiveTableViewController: UITableViewController {
         }
     }
     
-//    func checkViewHeight() {
-//        filterContainerView.translatesAutoresizingMaskIntoConstraints = false
-//        if filterViewPosition == 1 {
-//            filterContainerView.heightAnchor.constraint(equalToConstant: 52.0)
-//        }
-//        if filterViewPosition == 2 {
-//            filterContainerView.heightAnchor.constraint(equalToConstant: 150.0)
-//        }
-//        if filterViewPosition == 3 {
-//            filterContainerView.heightAnchor.constraint(equalToConstant: 400.0)
-//        }
-//    }
+    var entries: [Entry] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func checkViewHeight() {
+        filterContainerView.translatesAutoresizingMaskIntoConstraints = false
+        if filterViewPosition == 1 {
+            filterOptionsStackView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+            filterOptionsStackView.widthAnchor.constraint(equalTo: filterContainerView.widthAnchor, multiplier: 1).isActive = true
+            
+        }
+        if filterViewPosition == 2 {
+            filterOptionsStackView.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
+            filterOptionsStackView.widthAnchor.constraint(equalTo: filterContainerView.widthAnchor, multiplier: 1).isActive = true
+        }
+        if filterViewPosition == 3 {
+            filterOptionsStackView.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
+            filterOptionsStackView.widthAnchor.constraint(equalTo: filterContainerView.widthAnchor, multiplier: 1).isActive = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +56,18 @@ class ArchiveTableViewController: UITableViewController {
         filterOptionsStackView.removeArrangedSubview(filterMapView)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        CloudKitController.shared.fetchEntries { (entries) in
+            self.entries = entries
+        }
+    }
     
     
     @IBAction func showOptionsButtonPressed(_ sender: UIButton) {
         if filterViewPosition == 1 {
             //the search bar is visable
             //show the pickers
+            
             filterOptionsStackView.addArrangedSubview(pickerStackView)
             filterViewPosition += 1
             return
@@ -97,23 +115,24 @@ class ArchiveTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.entries.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "archiveCell", for: indexPath) as? ArchiveTableViewCell else {return UITableViewCell()}
+        
+        cell.titleLabel.text = self.entries[indexPath.row].title
+        cell.dateLabel.text = self.entries[indexPath.row].timestamp.formatDate()
+        cell.localeLabel.text = "Locale"
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -150,14 +169,17 @@ class ArchiveTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toEditEntryView" {
+            guard let destinationVC = segue.destination as? EditEntryViewController else {return}
+            guard let selected = tableView.indexPathForSelectedRow else {return}
+            let chosen = self.entries[selected.row]
+            destinationVC.entry = chosen
+        }
     }
-    */
-
 }

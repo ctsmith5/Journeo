@@ -28,8 +28,6 @@ class ArchiveTableViewCell: UITableViewCell {
        // localeLabel.text = entry.location.stringDescription()
         
     }
-    
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

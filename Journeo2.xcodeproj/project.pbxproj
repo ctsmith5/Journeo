@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF4F71D0230832B600C273BE /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */; };
+		AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */; };
+		AF4F71D42308347C00C273BE /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */; };
 		AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0C52304541F0001E40E /* AppDelegate.swift */; };
 		AF7DE0CB2304541F0001E40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0C92304541F0001E40E /* Main.storyboard */; };
 		AF7DE0CD230454270001E40E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0CC230454270001E40E /* Assets.xcassets */; };
@@ -24,6 +27,7 @@
 		AF7DE0FF2304A3B30001E40E /* YearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0FE2304A3B30001E40E /* YearPickerView.swift */; };
 		AF7DE1012304ABFB0001E40E /* ArchiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE1002304ABFB0001E40E /* ArchiveTableViewCell.swift */; };
 		AF7DE1032304C4190001E40E /* EntryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE1022304C4190001E40E /* EntryPhotoCollectionViewCell.swift */; };
+		AF7DE1062305DB2D0001E40E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE1052305DB2C0001E40E /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
+		AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
 		AF7DE0C22304541F0001E40E /* Journeo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journeo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7DE0C52304541F0001E40E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF7DE0CA2304541F0001E40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +66,7 @@
 		AF7DE0FE2304A3B30001E40E /* YearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearPickerView.swift; sourceTree = "<group>"; };
 		AF7DE1002304ABFB0001E40E /* ArchiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewCell.swift; sourceTree = "<group>"; };
 		AF7DE1022304C4190001E40E /* EntryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF7DE1052305DB2C0001E40E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 		AF7DE0C42304541F0001E40E /* Journeo2 */ = {
 			isa = PBXGroup;
 			children = (
+				AF7DE1042305DB190001E40E /* Helpers and Extensions */,
 				AF7DE0ED2304547C0001E40E /* Views */,
 				AF7DE0EC2304547A0001E40E /* ViewControllers */,
 				AF7DE0EB230454780001E40E /* ModelControllers */,
@@ -164,6 +173,8 @@
 				AF7DE0F223046F290001E40E /* EditEntryViewController.swift */,
 				AF7DE0F6230473BF0001E40E /* ReadEntryViewController.swift */,
 				AF7DE0F8230473EC0001E40E /* ArchiveTableViewController.swift */,
+				AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */,
+				AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -176,8 +187,17 @@
 				AF7DE0FE2304A3B30001E40E /* YearPickerView.swift */,
 				AF7DE1002304ABFB0001E40E /* ArchiveTableViewCell.swift */,
 				AF7DE1022304C4190001E40E /* EntryPhotoCollectionViewCell.swift */,
+				AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AF7DE1042305DB190001E40E /* Helpers and Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF7DE1052305DB2C0001E40E /* DateExtension.swift */,
+			);
+			path = "Helpers and Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,8 +314,12 @@
 				AF7DE0EF2304554A0001E40E /* Entry.swift in Sources */,
 				AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */,
 				AF7DE0F7230473BF0001E40E /* ReadEntryViewController.swift in Sources */,
+				AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */,
+				AF7DE1062305DB2D0001E40E /* DateExtension.swift in Sources */,
+				AF4F71D42308347C00C273BE /* EditPhotoViewController.swift in Sources */,
 				AF7DE0FF2304A3B30001E40E /* YearPickerView.swift in Sources */,
 				AF7DE1012304ABFB0001E40E /* ArchiveTableViewCell.swift in Sources */,
+				AF4F71D0230832B600C273BE /* PhotosTableViewCell.swift in Sources */,
 				AF7DE0F9230473EC0001E40E /* ArchiveTableViewController.swift in Sources */,
 				AF7DE1032304C4190001E40E /* EntryPhotoCollectionViewCell.swift in Sources */,
 				AF7DE0F523046F580001E40E /* EditEntryTextView.swift in Sources */,
