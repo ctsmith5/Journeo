@@ -12,7 +12,7 @@ import CloudKit
 class Photo {
     
     var photoData: Data?
-    var caption: String?
+    var caption: String
     let entryReference: CKRecord.Reference
     let index: Int
     let recordID: CKRecord.ID
@@ -40,7 +40,7 @@ class Photo {
         }
     }
     
-    init(entryReference: CKRecord.Reference, caption: String?, index: Int, recordID: CKRecord.ID, photograph: UIImage) {
+    init(entryReference: CKRecord.Reference, caption: String, index: Int, recordID: CKRecord.ID, photograph: UIImage) {
         self.entryReference = entryReference
         self.caption = caption
         self.index = index
@@ -51,7 +51,7 @@ class Photo {
     init?(ckRecord: CKRecord) {
         do{
             
-            guard let caption = ckRecord[PhotoConstants.captionKey] as? String? else {print("failing the caption") ; return nil}
+            guard let caption = ckRecord[PhotoConstants.captionKey] as? String else {print("failing the caption") ; return nil}
             guard let reference = ckRecord[PhotoConstants.referenceKey] as? CKRecord.Reference else {print("failing the EntryReference") ; return nil}
             guard let photoAsset = ckRecord[PhotoConstants.photographKey] as? CKAsset else {print("failing the ckAsset") ; return nil}
             

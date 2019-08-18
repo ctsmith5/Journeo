@@ -12,6 +12,8 @@ class PhotosTableViewCell: UITableViewCell {
 
     
     
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var captionLabel: UILabel!
     
     
     

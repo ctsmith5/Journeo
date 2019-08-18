@@ -10,6 +10,18 @@ import UIKit
 
 class EditPhotoViewController: UIViewController {
 
+    var photo: UIImage = UIImage() {
+        didSet{
+            loadViewIfNeeded()
+            updateUI()
+        }
+    }
+    var caption: String? {
+        didSet{
+            loadViewIfNeeded()
+            updateUI()
+        }
+    }
     
     @IBOutlet weak var captionTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -19,7 +31,10 @@ class EditPhotoViewController: UIViewController {
         
     }
     
-
+    func updateUI(){
+        captionTextField?.text = caption
+        photoImageView.image = photo
+    }
     /*
     // MARK: - Navigation
 

@@ -10,6 +10,7 @@
 		AF4F71D0230832B600C273BE /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */; };
 		AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */; };
 		AF4F71D42308347C00C273BE /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */; };
+		AF4F71D62309A0E200C273BE /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D52309A0E200C273BE /* EditInfoViewController.swift */; };
 		AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7DE0C52304541F0001E40E /* AppDelegate.swift */; };
 		AF7DE0CB2304541F0001E40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0C92304541F0001E40E /* Main.storyboard */; };
 		AF7DE0CD230454270001E40E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7DE0CC230454270001E40E /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
+		AF4F71D52309A0E200C273BE /* EditInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		AF7DE0C22304541F0001E40E /* Journeo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journeo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7DE0C52304541F0001E40E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF7DE0CA2304541F0001E40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				AF7DE0F8230473EC0001E40E /* ArchiveTableViewController.swift */,
 				AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */,
 				AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */,
+				AF4F71D52309A0E200C273BE /* EditInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				AF7DE0EF2304554A0001E40E /* Entry.swift in Sources */,
 				AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */,
 				AF7DE0F7230473BF0001E40E /* ReadEntryViewController.swift in Sources */,
+				AF4F71D62309A0E200C273BE /* EditInfoViewController.swift in Sources */,
 				AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */,
 				AF7DE1062305DB2D0001E40E /* DateExtension.swift in Sources */,
 				AF4F71D42308347C00C273BE /* EditPhotoViewController.swift in Sources */,

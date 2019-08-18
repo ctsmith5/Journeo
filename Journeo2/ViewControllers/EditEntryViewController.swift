@@ -8,14 +8,17 @@
 
 import UIKit
 import CloudKit
+import CoreLocation
+
 class EditEntryViewController: UIViewController {
 
     var photos: [UIImage] = []
-    var captions: [String?] = []
+    var captions: [String] = []
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextView: EditEntryTextView!
     @IBOutlet weak var photosCollectionView: UICollectionView!
+    @IBOutlet weak var loadPhotosActivity: UIActivityIndicatorView!
     
     var entry: Entry? {
         didSet {
@@ -24,10 +27,16 @@ class EditEntryViewController: UIViewController {
         }
     }
     
+    let locationManager = CLLocationManager()
+    var currentLocation = CLLocation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
+        checkLocationAuthorization()
+        checkLocationServices()
+        getLocation()
     }
     
     func selectPhotoButton() {
@@ -54,16 +63,12 @@ class EditEntryViewController: UIViewController {
         selectPhotoButton()
     }
     
-    
-    
-    
-    
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         
         if entry == nil {
             guard let titleText = titleTextField.text,
                 let bodyText = bodyTextView.text else {return}
-            let newEntry = Entry(title: titleText, body: bodyText)
+            let newEntry = Entry(title: titleText, body: bodyText, location: currentLocation)
             CloudKitController.shared.createEntry(entry: newEntry) { (success) in
                 if success {
                     print("success from the CreateEntry Completion Block")
@@ -128,32 +133,91 @@ class EditEntryViewController: UIViewController {
     
     func loadPhotos() {
         guard let entry = entry else {return}
+        loadPhotosActivity.startAnimating()
         CloudKitController.shared.fetchPhotos(entry: entry) { (photos) in
             var images: [UIImage] = []
+            var strings: [String] = []
             for image in photos {
                 guard let meat = image.photograph else {return}
+                      let potatoes = image.caption
                 images.append(meat)
+                strings.append(potatoes)
+                
             }
             self.photos = images
+            self.captions = strings
             DispatchQueue.main.async {
                 self.photosCollectionView.reloadData()
+                self.loadPhotosActivity.stopAnimating()
             }
         }
     }
+
+    //MARK: - Mapkit Methods
     
+    func checkLocationAuthorization(){
+        switch CLLocationManager.authorizationStatus(){
+        case .authorizedWhenInUse:
+            // Best Case
+            break
+        case .authorizedAlways:
+            break
+        case .denied:
+            // Show Alert to help them back to permissions
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .notDetermined:
+            
+            break
+        case .restricted:
+            break
+        default :
+            //I dunno
+            break
+        }
+    }
     
+    func checkLocationServices(){
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+        }else{
+            // Ask for location again
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // going to need to handle navigation over to the photosViewController
-        
-        
+        if segue.identifier == "toPhotosTVC"{
+            guard let destinationVC = segue.destination as? PhotosTableViewController else {return}
+            
+            destinationVC.photos = self.photos
+            destinationVC.captions = self.captions
+        }
     }
-
-
 }
 
+//MARK: - Extensions
+extension EditEntryViewController: CLLocationManagerDelegate{
+    func setupLocationManager(){
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+    }
+    func getLocation(){
+        if entry == nil {
+            locationManager.startUpdatingLocation()
+        }else {
+            guard let entry = entry else {return}
+            currentLocation = entry.location
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
+        guard let currentLocation = locations.first else {return}
+        self.currentLocation = currentLocation
+    }
+}
 
 extension EditEntryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -189,14 +253,13 @@ extension EditEntryViewController: UIImagePickerControllerDelegate, UINavigation
                 guard let captionText = captionAlert.textFields?[0].text,
                 !captionText.isEmpty
                 else {
-                    self.captions.append(nil)
-                    
+                    self.captions.append("")
                     return}
                 self.captions.append(captionText)
                 
             }
             let cancelAction = UIAlertAction(title: "No Caption", style: .default) { (closeAction) in
-                self.captions.append(nil)
+                self.captions.append("")
             }
             
             captionAlert.addAction(cancelAction)
