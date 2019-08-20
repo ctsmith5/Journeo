@@ -38,6 +38,9 @@ class EditEntryViewController: UIViewController {
         getLocation()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        photosCollectionView.reloadData()
+    }
     func selectPhotoButton() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self

@@ -52,7 +52,22 @@ class PhotosTableViewController: UITableViewController {
            self.presentCommentUpdate(index: index)
         }
         let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive) { (delete) in
-            //present another controller to confirm
+            let confirmationAlert = UIAlertController(title: "Confirm", message: "Are you sure you want to remove this photo?", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (yes) in
+                CloudKitController.shared.removePhoto(photoID: ImageCaptionController.shared.recordIDs[index] , completion: { (success) in
+                    DispatchQueue.main.async {
+                        ImageCaptionController.shared.photos.remove(at: index)
+                        ImageCaptionController.shared.captions.remove(at: index)
+                        ImageCaptionController.shared.recordIDs.remove(at: index)
+                        self.tableView.reloadData()
+                    }
+                })
+            })
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            confirmationAlert.addAction(yesAction)
+            confirmationAlert.addAction(noAction)
+            
+            self.present(confirmationAlert, animated: true, completion: nil)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         updateAlert.addAction(updateCaptionAction)

@@ -113,7 +113,16 @@ class CloudKitController {
         
     }
     
-    func removePhoto(entry: Entry, completion: @escaping (Bool) -> Void) {
+    func removePhoto(photoID: CKRecord.ID, completion: @escaping (Bool) -> Void) {
+        
+        privateDB.delete(withRecordID: photoID) { (recordToDelete, error) in
+            if let error = error {
+                print("\(error.localizedDescription)\(error) in function: \(#function)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
         
     }
     
