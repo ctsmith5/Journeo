@@ -61,8 +61,6 @@ class CloudKitController {
         
     }
     
-    
-    
     func updateEntry(entry: Entry, completion: @escaping (Bool) -> Void){
         //here we take in a previously existing entry and update it's record
     
@@ -121,9 +119,6 @@ class CloudKitController {
     
     func saveManyPhotos(records: [CKRecord], completion: @escaping (Bool) -> Void ) {
      
-        
-    
-        
         let saveOperation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
         saveOperation.savePolicy = .changedKeys
         

@@ -13,17 +13,21 @@ class ArchiveTableViewController: UITableViewController {
 
     
     @IBOutlet weak var filterContainerView: UIView!
-    @IBOutlet weak var filterOptionsStackView: UIStackView!
-    @IBOutlet weak var monthPickerView: MonthPickerView!
-    @IBOutlet weak var yearPickerView: YearPickerView!
-    @IBOutlet weak var pickerStackView: UIStackView!
-    @IBOutlet weak var filterMapView: MKMapView!
+    @IBOutlet weak var archiveSearchBar: UISearchBar!
     
-    var filterViewPosition: Int = 1 {
-        didSet {
-         //checkViewHeight()
-        }
+    
+    
+    let monthPickerDelegate = MonthPickerDelegate()
+    let yearPickerDelegate = YearPickerDelegate()
+    var isSearching: Bool = false
+    
+    var resultsArray: [SearchableEntry] = []
+    
+    var dataSource: [SearchableEntry] {
+        return isSearching ? resultsArray : self.entries
     }
+    
+    
     
     var entries: [Entry] = [] {
         didSet {
@@ -33,82 +37,27 @@ class ArchiveTableViewController: UITableViewController {
         }
     }
     
-    func checkViewHeight() {
-        filterContainerView.translatesAutoresizingMaskIntoConstraints = false
-        if filterViewPosition == 1 {
-            filterOptionsStackView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
-            filterOptionsStackView.widthAnchor.constraint(equalTo: filterContainerView.widthAnchor, multiplier: 1).isActive = true
-            
-        }
-        if filterViewPosition == 2 {
-            filterOptionsStackView.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
-            filterOptionsStackView.widthAnchor.constraint(equalTo: filterContainerView.widthAnchor, multiplier: 1).isActive = true
-        }
-        if filterViewPosition == 3 {
-            filterOptionsStackView.heightAnchor.constraint(equalToConstant: 400.0).isActive = true
-            filterOptionsStackView.widthAnchor.constraint(equalTo: filterContainerView.widthAnchor, multiplier: 1).isActive = true
-        }
+    func resetImageCaptionSOT(){
+        ImageCaptionController.shared.photos = []
+        ImageCaptionController.shared.captions = []
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterOptionsStackView.removeArrangedSubview(pickerStackView)
-        filterOptionsStackView.removeArrangedSubview(filterMapView)
+     archiveSearchBar.delegate = self
+        
     }
 
+
     override func viewWillAppear(_ animated: Bool) {
+        resetImageCaptionSOT()
         CloudKitController.shared.fetchEntries { (entries) in
             self.entries = entries
         }
     }
     
-    
-    @IBAction func showOptionsButtonPressed(_ sender: UIButton) {
-        if filterViewPosition == 1 {
-            //the search bar is visable
-            //show the pickers
-            
-            filterOptionsStackView.addArrangedSubview(pickerStackView)
-            filterViewPosition += 1
-            return
-        }
-        if filterViewPosition == 2 {
-            //the pickers are visable
-            //show the map
-            filterOptionsStackView.addArrangedSubview(filterMapView)
-            filterViewPosition += 1
-            return
-        }
-        if filterViewPosition == 3 {
-            //all are visble
-            //don't do anything - this button should not even be visible
-            return
-        }
-        
-    }
-    
-    @IBAction func hideOptionsButtonPressed(_ sender: UIButton) {
-        if filterViewPosition == 1 {
-            //only the searchbar is visable
-            //Don't do anything - the button shouldn't even be visible
-            return
-        }
-        if filterViewPosition == 2 {
-            //the picker is visable
-            //take away the picker
-            filterOptionsStackView.removeArrangedSubview(pickerStackView)
-            filterViewPosition -= 1
-            return
-        }
-        if filterViewPosition == 3 {
-            //the map is visible
-            //take away the map
-            filterOptionsStackView.removeArrangedSubview(filterMapView)
-            filterViewPosition -= 1
-        }
-        
-    }
-    
+  
     
     
     // MARK: - Table view data source
@@ -120,16 +69,14 @@ class ArchiveTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.entries.count
+        return self.dataSource.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "archiveCell", for: indexPath) as? ArchiveTableViewCell else {return UITableViewCell()}
-        
-        cell.titleLabel.text = self.entries[indexPath.row].title
-        cell.dateLabel.text = self.entries[indexPath.row].timestamp.formatDate()
-        cell.localeLabel.text = "Locale"
+        let entry = dataSource[indexPath.row] as? Entry
+        cell.entry = entry
         return cell
     }
     
@@ -182,4 +129,67 @@ class ArchiveTableViewController: UITableViewController {
             destinationVC.entry = chosen
         }
     }
+}
+
+
+class MonthPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 4
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let months = ["January","February","March", "April"]
+        let month = months[row]
+        return month
+    }
+    
+}
+
+class YearPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 6
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let months = ["1990","1991","1992", "1993", "1994", "1995"]
+        let month = months[row]
+        return month
+    }
+    
+}
+
+
+extension ArchiveTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        resultsArray = self.entries.filter {
+            $0.titleMatches(searchTerm: searchText)
+        }
+        tableView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        resultsArray = self.entries
+        tableView.reloadData()
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearching = false
+    }
+    
 }

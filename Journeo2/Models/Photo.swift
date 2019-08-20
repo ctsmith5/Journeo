@@ -16,6 +16,7 @@ class Photo {
     let entryReference: CKRecord.Reference
     let index: Int
     let recordID: CKRecord.ID
+   // var saved: Bool
     var imageAsset: CKAsset? {
         get{
             let tempDirectory = NSTemporaryDirectory()
@@ -45,6 +46,7 @@ class Photo {
         self.caption = caption
         self.index = index
         self.recordID = recordID
+        //self.saved = saved
         self.photograph = photograph
     }
     
@@ -54,8 +56,7 @@ class Photo {
             guard let caption = ckRecord[PhotoConstants.captionKey] as? String else {print("failing the caption") ; return nil}
             guard let reference = ckRecord[PhotoConstants.referenceKey] as? CKRecord.Reference else {print("failing the EntryReference") ; return nil}
             guard let photoAsset = ckRecord[PhotoConstants.photographKey] as? CKAsset else {print("failing the ckAsset") ; return nil}
-            
-            //FIXME: - We found the record converting problem
+           // guard let saved = ckRecord[PhotoConstants.savedKey] as? Bool else {print("failing the saved") ; return nil}
             guard let index = ckRecord[PhotoConstants.indexKey] as? Int else {print("failing the int") ; return nil}
         
             let photoData = try Data(contentsOf: photoAsset.fileURL!)
@@ -63,6 +64,7 @@ class Photo {
             self.caption = caption
             self.entryReference = reference
             self.photoData = photoData
+           // self.saved = true
             self.recordID = ckRecord.recordID
             self.index = index
         }catch {
@@ -78,6 +80,7 @@ extension CKRecord {
         self.setValue(photo.caption, forKey: PhotoConstants.captionKey)
         self.setValue(photo.entryReference, forKey: PhotoConstants.referenceKey)
         self.setValue(photo.imageAsset, forKey: PhotoConstants.photographKey)
+        //self.setValue(photo.saved, forKey: PhotoConstants.savedKey)
         self.setValue(photo.index, forKey: PhotoConstants.indexKey)
     }
 }
@@ -87,6 +90,7 @@ struct PhotoConstants {
     static let typeKey = "Photo"
     static let captionKey = "Caption"
     static let photographKey = "Photograph"
+  //  static let savedKey = "Saved"
     static let referenceKey = "EntryReference"
     static let indexKey = "Index"
 }

@@ -16,7 +16,11 @@ class ArchiveTableViewCell: UITableViewCell {
     @IBOutlet weak var localeLabel: UILabel!
     
     
-    var entry: Entry?
+    var entry: Entry? {
+        didSet{
+            awakeFromNib()
+        }
+    }
 
     
     override func awakeFromNib() {
@@ -24,8 +28,8 @@ class ArchiveTableViewCell: UITableViewCell {
         
         guard let entry = entry else {return}
         titleLabel.text = entry.title
-       // dateLabel.text = entry.date.asStringDateOnly()
-       // localeLabel.text = entry.location.stringDescription()
+        dateLabel.text = entry.timestamp.formatDate()
+        localeLabel.text = entry.location.localeString()
         
     }
 

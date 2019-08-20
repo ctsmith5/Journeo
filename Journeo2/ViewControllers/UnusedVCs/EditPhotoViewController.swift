@@ -10,6 +10,9 @@ import UIKit
 
 class EditPhotoViewController: UIViewController {
 
+    var newText: String? = nil
+    var index: Int? = nil
+    
     var photo: UIImage = UIImage() {
         didSet{
             loadViewIfNeeded()
@@ -31,11 +34,16 @@ class EditPhotoViewController: UIViewController {
         
     }
     
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        guard let newText = newText,
+              let index = index else {return}
+    }
+    
     func updateUI(){
         captionTextField?.text = caption
         photoImageView.image = photo
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -43,6 +51,7 @@ class EditPhotoViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
-
+   
 }
+
+

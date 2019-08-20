@@ -16,8 +16,8 @@ class Entry {
     // photodata
     
     var body: String
-    let timestamp: Date
-    let location: CLLocation
+    var timestamp: Date
+    var location: CLLocation
     //image
     
     let recordID: CKRecord.ID
@@ -49,6 +49,17 @@ extension Entry: Equatable {
     static func == (lhs: Entry, rhs: Entry) -> Bool {
         return lhs.recordID == rhs.recordID
     }
+}
+
+extension Entry: SearchableEntry {
+    func bodyMatches(searchTerm: String) -> Bool {
+        return body.localizedCaseInsensitiveContains(searchTerm)
+    }
+    func titleMatches(searchTerm: String) -> Bool {
+        return title.localizedCaseInsensitiveContains(searchTerm)
+    }
+    
+    
 }
 
 extension CKRecord {

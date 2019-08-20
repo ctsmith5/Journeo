@@ -10,10 +10,11 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
 
-    
+    var delegate: UITextFieldDelegate?
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    
     
     
     
@@ -28,5 +29,4 @@ class PhotosTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
