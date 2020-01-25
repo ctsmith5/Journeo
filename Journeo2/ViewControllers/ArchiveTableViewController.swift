@@ -16,7 +16,7 @@ class ArchiveTableViewController: UITableViewController {
     @IBOutlet weak var archiveSearchBar: UISearchBar!
     
     
-    
+    fileprivate var collapseDetailViewController = true
     let monthPickerDelegate = MonthPickerDelegate()
     let yearPickerDelegate = YearPickerDelegate()
     var isSearching: Bool = false
@@ -27,7 +27,7 @@ class ArchiveTableViewController: UITableViewController {
         return isSearching ? resultsArray : self.entries
     }
     
-    
+    var delegate: EntrySelectionDelegate?
     
     var entries: [Entry] = [] {
         didSet {
@@ -80,6 +80,11 @@ class ArchiveTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selected = entries[indexPath.row]
+        self.delegate?.entrySelected(selected)
+       
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -168,6 +173,16 @@ class YearPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
     
 }
 
+extension ArchiveTableViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        guard let navigationController = secondaryViewController as? UINavigationController,
+        let detailViewController = navigationController.topViewController as? EditEntryViewController else {
+          // Fallback to the default
+          return false
+        }
+        return detailViewController.entry != nil
+    }
+}
 
 extension ArchiveTableViewController: UISearchBarDelegate {
     

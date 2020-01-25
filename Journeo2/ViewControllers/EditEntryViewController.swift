@@ -316,3 +316,9 @@ extension EditEntryViewController: UIImagePickerControllerDelegate, UINavigation
         }
     }
 }
+
+extension EditEntryViewController: EntrySelectionDelegate {
+    func entrySelected(_ newEntry: Entry) {
+        self.entry = newEntry
+    }
+}
