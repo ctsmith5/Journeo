@@ -19,6 +19,7 @@ class EditEntryViewController: UIViewController {
     @IBOutlet weak var photosCollectionView: UICollectionView!
     @IBOutlet weak var loadPhotosActivity: UIActivityIndicatorView!
     
+    
     var entry: Entry? {
         didSet {
             loadViewIfNeeded()
