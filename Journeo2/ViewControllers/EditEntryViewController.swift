@@ -39,23 +39,6 @@ class EditEntryViewController: UIViewController {
         getLocation()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        let changesAlert = UIAlertController(title: "Confirm", message: "Would you like to save changes?", preferredStyle: .alert)
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
-            guard let entry = self.entry else {return}
-            CloudKitController.shared.updateEntry(entry: entry) { (bool) in
-                if bool {
-                    print("Changes successfully uploaded to cloudkit")
-                }
-            }
-        }
-        changesAlert.addAction(noAction)
-        changesAlert.addAction(saveAction)
-        present(changesAlert, animated: true, completion: nil)
-    }
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         photosCollectionView.reloadData()
     }
