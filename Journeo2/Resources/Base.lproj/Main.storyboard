@@ -207,11 +207,18 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="v9Q-WJ-E1Q">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jJy-If-2Rr">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="Lt6-sy-bbr" id="wCm-KD-IQ6"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="jJy-If-2Rr">
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Lt6-sy-bbr" id="wCm-KD-IQ6"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="1pT-6g-acE">
+                                <connections>
+                                    <action selector="deleteEntryButtonPressed:" destination="Lt6-sy-bbr" id="AEj-Xo-AAP"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -447,7 +454,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0uk-c9-fIn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="LZ0-ob-WWB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="LZ0-ob-WWB">
+                            <connections>
+                                <action selector="newEntryButtonPressed:" destination="WlK-Hq-dPZ" id="4IS-N9-jfE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="archiveSearchBar" destination="AU9-xH-c8B" id="Mdf-Nx-14X"/>

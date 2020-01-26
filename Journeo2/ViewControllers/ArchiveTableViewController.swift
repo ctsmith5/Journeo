@@ -36,7 +36,7 @@ class ArchiveTableViewController: UITableViewController {
             }
         }
     }
-    
+
     func resetImageCaptionSOT(){
         ImageCaptionController.shared.photos = []
         ImageCaptionController.shared.captions = []
@@ -83,10 +83,9 @@ class ArchiveTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = entries[indexPath.row]
         self.delegate?.entrySelected(selected)
-               if let detailViewController = delegate as? EditEntryViewController {
+        if let detailViewController = delegate as? EditEntryViewController {
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
         }
-        
     }
 
     /*
@@ -123,7 +122,17 @@ class ArchiveTableViewController: UITableViewController {
         return true
     }
     */
-
+    @IBAction func newEntryButtonPressed(_ sender: UIBarButtonItem) {
+        // Present Alert to Confirm Switch
+        
+        // if Yes: They are happy with the state of their iCloud, set the current entry to nil and rock and roll
+        if let detailViewController = delegate as? EditEntryViewController {
+            let newEntry = Entry(title: "", body: "")
+            delegate?.entrySelected(newEntry)
+            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+        }
+    }
+    
 
     // MARK: - Navigation
 

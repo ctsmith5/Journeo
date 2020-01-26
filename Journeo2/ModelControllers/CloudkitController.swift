@@ -55,10 +55,7 @@ class CloudKitController {
             }
             print("saved a record")
             completion(true)
-            
         }
-        
-        
     }
     
     func updateEntry(entry: Entry, completion: @escaping (Bool) -> Void){
@@ -84,6 +81,16 @@ class CloudKitController {
         
     }
     
+    func deleteEntry(entry: Entry, completion: @escaping (Bool) -> Void){
+        privateDB.delete(withRecordID: entry.recordID) { (recordToDelete, error) in
+                    if let error = error {
+                    print("\(error.localizedDescription)\(error) in function: \(#function)")
+                    completion(false)
+                    return
+                }
+            completion(true)
+        }
+    }
     
     func  fetchPhotos(entry: Entry, completion: @escaping ([Photo]) -> Void) {
         //perform query with a predicate of entry refrences that match the record ID of the entry that was passed in

@@ -13,12 +13,11 @@ extension CLLocation {
     
     func localeString() -> String {
         
-        var returnString: String?
+         var returnString: String?
         
         geocode(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude) { (point, error) in
             if let error = error {
                 print("\(error.localizedDescription)\(error) in function: \(#function)")
-                
                 return
             }
             guard let point = point else {return}

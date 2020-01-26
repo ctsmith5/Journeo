@@ -240,7 +240,6 @@ class EditEntryViewController: UIViewController {
             currentEntry.title = title
             currentEntry.body = body
             destination?.entry = currentEntry
-            
         }
     }
 }
