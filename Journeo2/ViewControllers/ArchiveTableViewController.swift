@@ -17,6 +17,7 @@ class ArchiveTableViewController: UITableViewController {
     
     
     fileprivate var collapseDetailViewController = true
+    
     let monthPickerDelegate = MonthPickerDelegate()
     let yearPickerDelegate = YearPickerDelegate()
     var isSearching: Bool = false
@@ -46,7 +47,6 @@ class ArchiveTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      archiveSearchBar.delegate = self
-        
     }
 
 
@@ -81,6 +81,7 @@ class ArchiveTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.collapseDetailViewController = false
         let selected = entries[indexPath.row]
         self.delegate?.entrySelected(selected)
         if let detailViewController = delegate as? EditEntryViewController {
@@ -186,13 +187,11 @@ class YearPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource
 }
 
 extension ArchiveTableViewController: UISplitViewControllerDelegate {
+
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        guard let navigationController = secondaryViewController as? UINavigationController,
-        let detailViewController = navigationController.topViewController as? EditEntryViewController else {
-          // Fallback to the default
-          return false
-        }
-        return detailViewController.entry != nil
+        guard let nav = primaryViewController as? UINavigationController,
+            let controller = nav.topViewController as? ArchiveTableViewController else {return true}
+        return controller.collapseDetailViewController
     }
 }
 

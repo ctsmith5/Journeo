@@ -23,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E08CC2A-3615-4F21-919E-EA19C051FB1F"
+            uuid = "EAF830A1-6AE0-4408-B84E-447E59C0566E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Journeo2/ViewControllers/ArchiveTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "newEntryButtonPressed(_:)"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "splitViewController(_:collapseSecondary:onto:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

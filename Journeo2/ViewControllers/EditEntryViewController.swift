@@ -55,9 +55,17 @@ class EditEntryViewController: UIViewController {
             }))
         }
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(actionSheet, animated: true, completion: nil)
         
+        if let iPadAlert = actionSheet.popoverPresentationController {
+            iPadAlert.sourceView = self.view
+            iPadAlert.sourceRect = CGRect(x: self.view.bounds.minX, y: self.view.bounds.minY, width: 400, height: 300)
+            iPadAlert.permittedArrowDirections = []
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(actionSheet, animated: true, completion: nil)
+        }else  {
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(actionSheet, animated: true, completion: nil)
+        }
     }
     
     //MARK: - IBActions
