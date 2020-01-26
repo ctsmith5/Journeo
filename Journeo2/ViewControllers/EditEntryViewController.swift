@@ -39,6 +39,23 @@ class EditEntryViewController: UIViewController {
         getLocation()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        let changesAlert = UIAlertController(title: "Confirm", message: "Would you like to save changes?", preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let entry = self.entry else {return}
+            CloudKitController.shared.updateEntry(entry: entry) { (bool) in
+                if bool {
+                    print("Changes successfully uploaded to cloudkit")
+                }
+            }
+        }
+        changesAlert.addAction(noAction)
+        changesAlert.addAction(saveAction)
+        present(changesAlert, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         photosCollectionView.reloadData()
     }
@@ -82,7 +99,6 @@ class EditEntryViewController: UIViewController {
             let newEntry = Entry(title: titleText, body: bodyText, location: currentLocation)
             CloudKitController.shared.createEntry(entry: newEntry) { (success) in
                 if success {
-                    
                     print("success from the CreateEntry Completion Block")
                     let successAlert = UIAlertController(title: "Success", message: "iCloud has registered your changes. Wait a few seconds for synchronization before reloading.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -233,17 +249,12 @@ class EditEntryViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPhotosTVC"{
-            //guard let destinationVC = segue.destination as? PhotosTableViewController else {return}
-            
-
-        }
         if segue.identifier == "toEditPanel" {
             let destination = segue.destination as? EditInfoViewController
             destination?.coordinate = currentLocation
             guard let currentEntry = self.entry else {return}
             guard let title = titleTextField.text,
-                let body = bodyTextView.text else {return}
+                  let body = bodyTextView.text else {return}
             currentEntry.title = title
             currentEntry.body = body
             destination?.entry = currentEntry
