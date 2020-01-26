@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1053C123DDF5DA00E74659 /* SplitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1053C023DDF5DA00E74659 /* SplitViewDelegate.swift */; };
 		AF4F71D0230832B600C273BE /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */; };
 		AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */; };
 		AF4F71D42308347C00C273BE /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AF1053C023DDF5DA00E74659 /* SplitViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewDelegate.swift; sourceTree = "<group>"; };
 		AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				AF7DE1052305DB2C0001E40E /* DateExtension.swift */,
 				AFC0E43E230B392D0003371C /* LocationExtension.swift */,
 				AF691737230C4B3C002E8FB2 /* SearchableRecord.swift */,
+				AF1053C023DDF5DA00E74659 /* SplitViewDelegate.swift */,
 			);
 			path = "Helpers and Extensions";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				AF7DE0FD2304A39F0001E40E /* MonthPickerView.swift in Sources */,
 				AF7DE0EF2304554A0001E40E /* Entry.swift in Sources */,
 				AF7DE0C62304541F0001E40E /* AppDelegate.swift in Sources */,
+				AF1053C123DDF5DA00E74659 /* SplitViewDelegate.swift in Sources */,
 				AF7DE0F7230473BF0001E40E /* ReadEntryViewController.swift in Sources */,
 				AF4F71D62309A0E200C273BE /* EditInfoViewController.swift in Sources */,
 				AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */,

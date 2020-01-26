@@ -19,6 +19,7 @@ class EditEntryViewController: UIViewController {
     @IBOutlet weak var photosCollectionView: UICollectionView!
     @IBOutlet weak var loadPhotosActivity: UIActivityIndicatorView!
     
+    
     var entry: Entry? {
         didSet {
             loadViewIfNeeded()
@@ -38,6 +39,23 @@ class EditEntryViewController: UIViewController {
         getLocation()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        let changesAlert = UIAlertController(title: "Confirm", message: "Would you like to save changes?", preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let entry = self.entry else {return}
+            CloudKitController.shared.updateEntry(entry: entry) { (bool) in
+                if bool {
+                    print("Changes successfully uploaded to cloudkit")
+                }
+            }
+        }
+        changesAlert.addAction(noAction)
+        changesAlert.addAction(saveAction)
+        present(changesAlert, animated: true, completion: nil)
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         photosCollectionView.reloadData()
     }
@@ -54,9 +72,17 @@ class EditEntryViewController: UIViewController {
             }))
         }
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(actionSheet, animated: true, completion: nil)
         
+        if let iPadAlert = actionSheet.popoverPresentationController {
+            iPadAlert.sourceView = self.view
+            iPadAlert.sourceRect = CGRect(x: self.view.bounds.minX, y: self.view.bounds.minY, width: 400, height: 300)
+            iPadAlert.permittedArrowDirections = []
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(actionSheet, animated: true, completion: nil)
+        }else  {
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(actionSheet, animated: true, completion: nil)
+        }
     }
     
     //MARK: - IBActions
@@ -73,7 +99,6 @@ class EditEntryViewController: UIViewController {
             let newEntry = Entry(title: titleText, body: bodyText, location: currentLocation)
             CloudKitController.shared.createEntry(entry: newEntry) { (success) in
                 if success {
-                    
                     print("success from the CreateEntry Completion Block")
                     let successAlert = UIAlertController(title: "Success", message: "iCloud has registered your changes. Wait a few seconds for synchronization before reloading.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -152,8 +177,13 @@ class EditEntryViewController: UIViewController {
     
     func updateUI() {
         guard let entry = entry else {return}
-        titleTextField.text = entry.title
-        bodyTextView.text = entry.body
+        
+        DispatchQueue.main.async {
+            self.loadViewIfNeeded()
+            self.titleTextField.text = entry.title
+            self.bodyTextView.text = entry.body
+        }
+        
         //fetch photos and put them in the collection view somehow
         loadPhotos()
     }
@@ -199,7 +229,6 @@ class EditEntryViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
             break
         case .notDetermined:
-            
             break
         case .restricted:
             break
@@ -220,21 +249,15 @@ class EditEntryViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPhotosTVC"{
-            //guard let destinationVC = segue.destination as? PhotosTableViewController else {return}
-            
-
-        }
         if segue.identifier == "toEditPanel" {
             let destination = segue.destination as? EditInfoViewController
             destination?.coordinate = currentLocation
             guard let currentEntry = self.entry else {return}
             guard let title = titleTextField.text,
-                let body = bodyTextView.text else {return}
+                  let body = bodyTextView.text else {return}
             currentEntry.title = title
             currentEntry.body = body
             destination?.entry = currentEntry
-            
         }
     }
 }
@@ -313,5 +336,11 @@ extension EditEntryViewController: UIImagePickerControllerDelegate, UINavigation
                 self.photosCollectionView.reloadData()
             }
         }
+    }
+}
+
+extension EditEntryViewController: EntrySelectionDelegate {
+    func entrySelected(_ newEntry: Entry) {
+        self.entry = newEntry
     }
 }

@@ -62,6 +62,10 @@ extension Entry: SearchableEntry {
     
 }
 
+protocol EntrySelectionDelegate {
+    func entrySelected(_ newEntry: Entry)
+}
+
 extension CKRecord {
     convenience init(entry: Entry) {
         self.init(recordType: EntryConstants.typeKey, recordID: entry.recordID)

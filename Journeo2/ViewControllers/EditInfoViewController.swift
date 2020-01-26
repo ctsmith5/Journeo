@@ -41,13 +41,24 @@ class EditInfoViewController: UIViewController {
         changeLocationMapView.setCenter(entry.location.coordinate, animated: false)
     }
     
-    @IBAction func resetDateButtonPressed(_ sender: UIButton) {
+    @IBAction func deleteEntryButtonPressed(_ sender: UIBarButtonItem) {
+            let confirmationAlert = UIAlertController(title: "WARNING!", message: "Are you sure you want to remove this Entry?", preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "Yes", style: .destructive, handler: { (yes) in
+                guard let entry = self.entry else {return}
+                CloudKitController.shared.deleteEntry(entry: entry) { (success) in
+                    print("Successfully Deleted Entry")
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            })
+            let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            confirmationAlert.addAction(yesAction)
+            confirmationAlert.addAction(noAction)
+            
+            self.present(confirmationAlert, animated: true, completion: nil)
     }
     
-    
-    @IBOutlet weak var resetLocationButtonPressed: UIStackView!
-    
-
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         newDate = changeDatePicker.date
