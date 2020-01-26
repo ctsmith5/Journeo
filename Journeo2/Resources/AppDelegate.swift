@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var splitViewDelegate = SplitViewDelegate()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         guard let splitViewController = window?.rootViewController as? UISplitViewController,
             let leftNavController = splitViewController.viewControllers.first as? UINavigationController,
@@ -27,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let firstEntry = masterViewController.entries.first
         detailViewController.entry = firstEntry
-        
+        splitViewController.delegate = splitViewDelegate
         masterViewController.delegate = detailViewController
         splitViewController.preferredDisplayMode = .allVisible
        // detailViewController.navigationItem.leftItemsSupplementBackButton = true

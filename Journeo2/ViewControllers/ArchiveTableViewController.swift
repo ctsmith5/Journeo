@@ -16,10 +16,8 @@ class ArchiveTableViewController: UITableViewController {
     @IBOutlet weak var archiveSearchBar: UISearchBar!
     
     
-    fileprivate var collapseDetailViewController = true
-    
-    let monthPickerDelegate = MonthPickerDelegate()
-    let yearPickerDelegate = YearPickerDelegate()
+    var collapseDetailViewController = true
+
     var isSearching: Bool = false
     
     var resultsArray: [SearchableEntry] = []
@@ -89,46 +87,12 @@ class ArchiveTableViewController: UITableViewController {
         }
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     @IBAction func newEntryButtonPressed(_ sender: UIBarButtonItem) {
         // Present Alert to Confirm Switch
         
         // if Yes: They are happy with the state of their iCloud, set the current entry to nil and rock and roll
         if let detailViewController = delegate as? EditEntryViewController {
-            let newEntry = Entry(title: "", body: "")
+            let newEntry = Entry(title: "", body: "",location: detailViewController.currentLocation)
             delegate?.entrySelected(newEntry)
             splitViewController?.showDetailViewController(detailViewController, sender: nil)
         }
@@ -146,52 +110,6 @@ class ArchiveTableViewController: UITableViewController {
             let chosen = self.entries[selected.row]
             destinationVC.entry = chosen
         }
-    }
-}
-
-
-class MonthPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 4
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let months = ["January","February","March", "April"]
-        let month = months[row]
-        return month
-    }
-    
-}
-
-class YearPickerDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 6
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let months = ["1990","1991","1992", "1993", "1994", "1995"]
-        let month = months[row]
-        return month
-    }
-    
-}
-
-extension ArchiveTableViewController: UISplitViewControllerDelegate {
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        guard let nav = primaryViewController as? UINavigationController,
-            let controller = nav.topViewController as? ArchiveTableViewController else {return true}
-        return controller.collapseDetailViewController
     }
 }
 

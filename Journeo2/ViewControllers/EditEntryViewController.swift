@@ -213,7 +213,6 @@ class EditEntryViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
             break
         case .notDetermined:
-            
             break
         case .restricted:
             break
