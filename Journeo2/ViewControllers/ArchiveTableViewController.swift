@@ -83,7 +83,10 @@ class ArchiveTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = entries[indexPath.row]
         self.delegate?.entrySelected(selected)
-       
+               if let detailViewController = delegate as? EditEntryViewController {
+            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+        }
+        
     }
 
     /*

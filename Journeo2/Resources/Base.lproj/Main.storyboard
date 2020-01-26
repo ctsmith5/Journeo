@@ -28,15 +28,15 @@
                                         <rect key="frame" x="0.0" y="88" width="374" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGZ-Qo-Vio">
-                                                <rect key="frame" x="0.0" y="0.0" width="69" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="80"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
-                                                <state key="normal" image="addImage"/>
+                                                <state key="normal" image="camera" catalog="system"/>
                                                 <connections>
                                                     <action selector="addNewPhotoButtonPressed:" destination="2vs-FZ-PPz" eventType="touchUpInside" id="OnZ-83-v3R"/>
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Nv-Hg-jzH">
-                                                <rect key="frame" x="77" y="0.0" width="259" height="80"/>
+                                                <rect key="frame" x="94.5" y="0.0" width="259" height="80"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="hv4-3C-atf"/>
@@ -76,9 +76,9 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-U5-K7K">
-                                                <rect key="frame" x="344" y="0.0" width="30" height="80"/>
-                                                <state key="normal" title="&gt;"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-U5-K7K">
+                                                <rect key="frame" x="361.5" y="0.0" width="12.5" height="80"/>
+                                                <state key="normal" image="chevron.right" catalog="system"/>
                                                 <connections>
                                                     <segue destination="33g-YF-IGC" kind="show" identifier="toPhotosTVC" id="dFu-vb-z5a"/>
                                                 </connections>
@@ -563,7 +563,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addImage" width="15" height="15"/>
+        <image name="camera" catalog="system" width="64" height="48"/>
+        <image name="chevron.right" catalog="system" width="48" height="64"/>
         <image name="pin" width="256" height="256"/>
     </resources>
 </document>

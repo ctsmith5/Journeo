@@ -153,8 +153,13 @@ class EditEntryViewController: UIViewController {
     
     func updateUI() {
         guard let entry = entry else {return}
-        titleTextField.text = entry.title
-        bodyTextView.text = entry.body
+        
+        DispatchQueue.main.async {
+            self.loadViewIfNeeded()
+            self.titleTextField.text = entry.title
+            self.bodyTextView.text = entry.body
+        }
+        
         //fetch photos and put them in the collection view somehow
         loadPhotos()
     }
