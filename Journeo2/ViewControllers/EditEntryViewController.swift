@@ -86,7 +86,9 @@ class EditEntryViewController: UIViewController {
                     let successAlert = UIAlertController(title: "Success", message: "iCloud has registered your changes. Wait a few seconds for synchronization before reloading.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     successAlert.addAction(okAction)
-                    self.present(successAlert, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.present(successAlert, animated: true, completion: nil)
+                    }
                 }
                 else {
                     print("problem saving new entry to cloudkit")
