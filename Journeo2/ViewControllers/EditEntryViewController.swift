@@ -41,6 +41,26 @@ class EditEntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         photosCollectionView.reloadData()
+        if CloudKitController.shared.ckRecordDeleted == true {
+            let blankEntry = Entry(title: "", body: "", location: currentLocation)
+            self.entry = blankEntry
+            saveAndReload()
+            CloudKitController.shared.ckRecordDeleted = nil
+        }
+    }
+    
+    func saveAndReload() {
+        guard let editNav = self.parent as? UINavigationController,
+        let master = editNav.parent as? UISplitViewController,
+        let archiveNav = master.viewControllers.first as? UINavigationController,
+        let archive = archiveNav.topViewController as? ArchiveTableViewController else {return}
+        
+        CloudKitController.shared.fetchEntries { (entries) in
+            DispatchQueue.main.async {
+                //Somehow get the archiveTVC to update
+                archive.entries = entries
+            }
+        }
     }
     func selectPhotoButton() {
         let imagePickerController = UIImagePickerController()
@@ -82,11 +102,13 @@ class EditEntryViewController: UIViewController {
             let newEntry = Entry(title: titleText, body: bodyText, location: currentLocation)
             CloudKitController.shared.createEntry(entry: newEntry) { (success) in
                 if success {
+                    
                     print("success from the CreateEntry Completion Block")
                     let successAlert = UIAlertController(title: "Success", message: "iCloud has registered your changes. Wait a few seconds for synchronization before reloading.", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     successAlert.addAction(okAction)
                     DispatchQueue.main.async {
+                        
                         self.present(successAlert, animated: true, completion: nil)
                     }
                 }
@@ -94,7 +116,7 @@ class EditEntryViewController: UIViewController {
                     print("problem saving new entry to cloudkit")
                 }
             }
-            
+            saveAndReload()
             var photosToSave: [Photo] = []
             
             for i in 0..<ImageCaptionController.shared.photos.count {
@@ -116,6 +138,7 @@ class EditEntryViewController: UIViewController {
             
         } // The if Statement that checks if this is a new Entry or not.
         else {
+            
             // Set up a CKModifyRecords operation that takes in the entry and updates the necessary fields
             guard let titleText = titleTextField.text,
                   let bodyText = bodyTextView.text else {return}
@@ -156,6 +179,7 @@ class EditEntryViewController: UIViewController {
                     
                 }
             }
+            saveAndReload()
         }
     }
     

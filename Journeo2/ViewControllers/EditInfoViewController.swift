@@ -49,6 +49,7 @@ class EditInfoViewController: UIViewController {
                     print("Successfully Deleted Entry")
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
+                        CloudKitController.shared.ckRecordDeleted = true
                     }
                 }
             })

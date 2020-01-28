@@ -16,6 +16,7 @@ class CloudKitController {
     
     var entries: [Entry] = []
     
+    var ckRecordDeleted: Bool?
     
     func fetchEntries(completion: @escaping ([Entry]) -> Void){
         //Just fetch all the entries for a user's private cloud database

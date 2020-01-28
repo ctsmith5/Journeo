@@ -83,7 +83,7 @@ class ArchiveTableViewController: UITableViewController {
         let selected = entries[indexPath.row]
         self.delegate?.entrySelected(selected)
         if let detailViewController = delegate as? EditEntryViewController {
-            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+            splitViewController?.showDetailViewController(detailViewController.parent ?? UIViewController(), sender: nil)
         }
     }
 
@@ -94,7 +94,7 @@ class ArchiveTableViewController: UITableViewController {
         if let detailViewController = delegate as? EditEntryViewController {
             let newEntry = Entry(title: "", body: "",location: detailViewController.currentLocation)
             delegate?.entrySelected(newEntry)
-            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+            splitViewController?.showDetailViewController(detailViewController.parent ?? UIViewController(), sender: nil)
         }
     }
     
