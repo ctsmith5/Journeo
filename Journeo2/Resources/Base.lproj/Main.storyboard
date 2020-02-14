@@ -223,7 +223,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="changeDatePicker" destination="bkO-N7-QRJ" id="QDt-4h-RyY"/>
-                        <outlet property="changeLocationMapView" destination="Tky-lk-oCa" id="QMa-js-cUq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8C-h2-25M" userLabel="First Responder" sceneMemberID="firstResponder"/>
