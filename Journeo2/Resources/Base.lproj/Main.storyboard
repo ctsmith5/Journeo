@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="2694" y="185"/>
         </scene>
-        <!--Edit Info View Controller-->
+        <!--Edit Info2 View Controller-->
         <scene sceneID="2a8-SW-tsY">
             <objects>
-                <viewController id="Lt6-sy-bbr" customClass="EditInfoViewController" customModule="Journeo2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lt6-sy-bbr" customClass="EditInfo2ViewController" customModule="Journeo2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mrb-Oq-Vpa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,26 +208,19 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="v9Q-WJ-E1Q">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="jJy-If-2Rr">
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="Lt6-sy-bbr" id="wCm-KD-IQ6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="trash" id="1pT-6g-acE">
-                                <connections>
-                                    <action selector="deleteEntryButtonPressed:" destination="Lt6-sy-bbr" id="AEj-Xo-AAP"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="save" id="jJy-If-2Rr"/>
+                            <barButtonItem systemItem="trash" id="1pT-6g-acE"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="changeDatePicker" destination="bkO-N7-QRJ" id="QDt-4h-RyY"/>
+                        <outlet property="changeDatePicker" destination="bkO-N7-QRJ" id="7a6-dh-Ihh"/>
+                        <outlet property="changeLocationMapView" destination="Tky-lk-oCa" id="qx9-IK-BMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8C-h2-25M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753.6231884057972" y="919.41964285714278"/>
+            <point key="canvasLocation" x="2693" y="994"/>
         </scene>
         <!--Title-->
         <scene sceneID="MG7-YT-Uct">
