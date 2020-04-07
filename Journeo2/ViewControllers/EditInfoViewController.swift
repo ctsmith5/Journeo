@@ -17,7 +17,8 @@ class EditInfoViewController: UIViewController {
     var entry: Entry?
     
     @IBOutlet weak var changeDatePicker: UIDatePicker!
-    @IBOutlet weak var changeLocationMapView: MKMapView!
+    
+    var changeLocationMapView = MKMapView()
     
     var coordinate: CLLocation?
     

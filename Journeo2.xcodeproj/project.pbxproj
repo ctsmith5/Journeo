@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF1053C123DDF5DA00E74659 /* SplitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1053C023DDF5DA00E74659 /* SplitViewDelegate.swift */; };
+		AF139DFF240C487700C697FA /* EditInfo2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF139DFE240C487700C697FA /* EditInfo2ViewController.swift */; };
 		AF4F71D0230832B600C273BE /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */; };
 		AF4F71D22308344C00C273BE /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */; };
 		AF4F71D42308347C00C273BE /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		AF1053C023DDF5DA00E74659 /* SplitViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewDelegate.swift; sourceTree = "<group>"; };
+		AF139DFE240C487700C697FA /* EditInfo2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfo2ViewController.swift; sourceTree = "<group>"; };
 		AF4F71CF230832B600C273BE /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		AF4F71D32308347C00C273BE /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				AF7DE0F223046F290001E40E /* EditEntryViewController.swift */,
 				AF4F71D12308344C00C273BE /* PhotosTableViewController.swift */,
 				AF4F71D52309A0E200C273BE /* EditInfoViewController.swift */,
+				AF139DFE240C487700C697FA /* EditInfo2ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				AF4F71D9230AFB1C00C273BE /* ImageCaptionController.swift in Sources */,
 				AF7DE0F9230473EC0001E40E /* ArchiveTableViewController.swift in Sources */,
 				AF7DE1032304C4190001E40E /* EntryPhotoCollectionViewCell.swift in Sources */,
+				AF139DFF240C487700C697FA /* EditInfo2ViewController.swift in Sources */,
 				AF7DE0F523046F580001E40E /* EditEntryTextView.swift in Sources */,
 				AF7DE0FB230492BA0001E40E /* CloudkitController.swift in Sources */,
 				AFC0E43D230B245D0003371C /* UpdateCaptionTextField.swift in Sources */,
@@ -520,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Journeo2/Journeo2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2779EQ3QB6;
 				INFOPLIST_FILE = "$(SRCROOT)/Journeo2/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
@@ -542,7 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Journeo2/Journeo2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2779EQ3QB6;
 				INFOPLIST_FILE = "$(SRCROOT)/Journeo2/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
