@@ -139,36 +139,29 @@
                                 <rect key="frame" x="20" y="88" width="374" height="725"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Edit Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVU-Yy-4I7">
-                                        <rect key="frame" x="144.5" y="0.0" width="85.5" height="79.5"/>
+                                        <rect key="frame" x="144.5" y="0.0" width="85.5" height="89"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Change Entry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfH-fd-F9m">
-                                        <rect key="frame" x="0.0" y="98.5" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="108" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="bkO-N7-QRJ">
-                                        <rect key="frame" x="27" y="138" width="320" height="145"/>
+                                        <rect key="frame" x="27" y="147.5" width="320" height="145"/>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQj-Nz-jWv">
-                                        <rect key="frame" x="0.0" y="302" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="311.5" width="374" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="Change Entry Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX7-fj-9Nq">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d71-9R-104">
-                                                <rect key="frame" x="172.5" y="0.0" width="201.5" height="30"/>
-                                                <state key="normal" title="Update Location"/>
-                                                <connections>
-                                                    <action selector="updateLocationPressed:" destination="Lt6-sy-bbr" eventType="touchUpInside" id="rOC-PR-voE"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cT-8C-07n">
@@ -218,7 +211,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="v9Q-WJ-E1Q">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="jJy-If-2Rr"/>
+                            <barButtonItem systemItem="save" id="jJy-If-2Rr">
+                                <connections>
+                                    <action selector="savePressed:" destination="Lt6-sy-bbr" id="r9c-iu-gMN"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="trash" id="1pT-6g-acE"/>
                         </rightBarButtonItems>
                     </navigationItem>

@@ -19,6 +19,7 @@ class EditInfo2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
+        synchronizeUI()
         // Do any additional setup after loading the view.
     }
     func setupMap() {
@@ -36,13 +37,19 @@ class EditInfo2ViewController: UIViewController {
         changeLocationMapView.setCenter(entry.location.coordinate, animated: false)
     }
     
+    func updateEntryTimestamp() {
+        self.entry?.timestamp = changeDatePicker.date
+    }
     func updateEntryLocation() {
         self.entry?.location = CLLocation(latitude: changeLocationMapView.region.center.latitude, longitude: changeLocationMapView.region.center.longitude)
 
     }
-    @IBAction func updateLocationPressed(_ sender: UIButton) {
+
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        updateEntryTimestamp()
         updateEntryLocation()
     }
+    
     
 }
     
