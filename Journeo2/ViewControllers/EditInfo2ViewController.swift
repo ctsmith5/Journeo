@@ -35,6 +35,15 @@ class EditInfo2ViewController: UIViewController {
         changeDatePicker.date = entry.timestamp
         changeLocationMapView.setCenter(entry.location.coordinate, animated: false)
     }
+    
+    func updateEntryLocation() {
+        self.entry?.location = CLLocation(latitude: changeLocationMapView.region.center.latitude, longitude: changeLocationMapView.region.center.longitude)
+
+    }
+    @IBAction func updateLocationPressed(_ sender: UIButton) {
+        updateEntryLocation()
+    }
+    
 }
     
     

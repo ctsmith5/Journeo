@@ -260,7 +260,7 @@ class EditEntryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditPanel" {
             let destination = segue.destination as? EditInfo2ViewController
-            destination?.coordinate = currentLocation
+            destination?.coordinate = entry?.location
             guard let currentEntry = self.entry else {return}
             guard let title = titleTextField.text,
                   let body = bodyTextView.text else {return}
