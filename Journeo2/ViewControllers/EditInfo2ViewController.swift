@@ -13,7 +13,7 @@ class EditInfo2ViewController: UIViewController {
     var newDate: Date?
     var newCoordinate: CLLocation?
     var coordinate: CLLocation?
-    var entry: Entry?
+    weak var entry: Entry?
     @IBOutlet weak var changeLocationMapView: MKMapView!
     @IBOutlet weak var changeDatePicker: UIDatePicker!
     override func viewDidLoad() {
