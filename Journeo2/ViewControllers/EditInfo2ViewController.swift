@@ -13,12 +13,13 @@ class EditInfo2ViewController: UIViewController {
     var newDate: Date?
     var newCoordinate: CLLocation?
     var coordinate: CLLocation?
-    var entry: Entry?
+    weak var entry: Entry?
     @IBOutlet weak var changeLocationMapView: MKMapView!
     @IBOutlet weak var changeDatePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupMap()
+        synchronizeUI()
         // Do any additional setup after loading the view.
     }
     func setupMap() {
@@ -35,6 +36,22 @@ class EditInfo2ViewController: UIViewController {
         changeDatePicker.date = entry.timestamp
         changeLocationMapView.setCenter(entry.location.coordinate, animated: false)
     }
+    
+    func updateEntryTimestamp() {
+        self.entry?.timestamp = changeDatePicker.date
+    }
+    func updateEntryLocation() {
+        self.entry?.location = CLLocation(latitude: changeLocationMapView.region.center.latitude, longitude: changeLocationMapView.region.center.longitude)
+
+    }
+
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        updateEntryTimestamp()
+        updateEntryLocation()
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
     
     

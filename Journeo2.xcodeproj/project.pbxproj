@@ -527,7 +527,7 @@
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2779EQ3QB6;
 				INFOPLIST_FILE = "$(SRCROOT)/Journeo2/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,7 +549,7 @@
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2779EQ3QB6;
 				INFOPLIST_FILE = "$(SRCROOT)/Journeo2/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
