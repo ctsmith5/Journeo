@@ -259,7 +259,7 @@ class EditEntryViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditPanel" {
-            let destination = segue.destination as? EditInfoViewController
+            let destination = segue.destination as? EditInfo2ViewController
             destination?.coordinate = currentLocation
             guard let currentEntry = self.entry else {return}
             guard let title = titleTextField.text,

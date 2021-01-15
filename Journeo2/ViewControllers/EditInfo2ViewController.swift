@@ -18,7 +18,7 @@ class EditInfo2ViewController: UIViewController {
     @IBOutlet weak var changeDatePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupMap()
         // Do any additional setup after loading the view.
     }
     func setupMap() {
