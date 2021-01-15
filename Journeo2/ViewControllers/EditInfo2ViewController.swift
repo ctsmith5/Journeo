@@ -48,6 +48,7 @@ class EditInfo2ViewController: UIViewController {
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
         updateEntryTimestamp()
         updateEntryLocation()
+        navigationController?.popViewController(animated: true)
     }
     
     

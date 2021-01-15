@@ -211,7 +211,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="v9Q-WJ-E1Q">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="jJy-If-2Rr">
+                            <barButtonItem image="checkmark.rectangle" catalog="system" id="jJy-If-2Rr">
                                 <connections>
                                     <action selector="savePressed:" destination="Lt6-sy-bbr" id="r9c-iu-gMN"/>
                                 </connections>
@@ -574,6 +574,7 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="pin" width="256" height="256"/>
         <systemColor name="groupTableViewBackgroundColor">
