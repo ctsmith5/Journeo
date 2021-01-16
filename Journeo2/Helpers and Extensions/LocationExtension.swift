@@ -13,7 +13,7 @@ extension CLLocation {
     
     func localeString() -> String {
         
-         var returnString: String?
+         var returnString: String = ""
         
         geocode(latitude: self.coordinate.latitude, longitude: self.coordinate.longitude) { (point, error) in
             if let error = error {
@@ -27,9 +27,7 @@ extension CLLocation {
             returnString = city
            
         }
-        guard let finalString = returnString else {return ""}
-        print(finalString)
-        return finalString
+        return returnString
     }// End of LocaleString Function
     
     func geocode(latitude: Double, longitude: Double, completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void)  {
