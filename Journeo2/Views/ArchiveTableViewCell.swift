@@ -13,7 +13,7 @@ class ArchiveTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var localeLabel: UILabel!
+
     
     
     var entry: Entry? {
@@ -29,7 +29,6 @@ class ArchiveTableViewCell: UITableViewCell {
         guard let entry = entry else {return}
         titleLabel.text = entry.title
         dateLabel.text = entry.timestamp.formatDate()
-        localeLabel.text = entry.location.localeString()
         
     }
 
