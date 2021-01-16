@@ -400,10 +400,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="EdI-oD-v6f">
-                                            <rect key="frame" x="40" y="19" width="334" height="119"/>
+                                            <rect key="frame" x="40" y="31" width="334" height="95"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oY4-K1-Mmw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="48"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="73"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-S7-jdN">
                                                             <rect key="frame" x="0.0" y="0.0" width="334" height="23"/>
@@ -417,10 +417,17 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locale Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9i4-Sc-369">
+                                                            <rect key="frame" x="0.0" y="56" width="334" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="k0M-S7-jdN" firstAttribute="width" secondItem="oY4-K1-Mmw" secondAttribute="width" id="9Tv-VX-P7d"/>
                                                         <constraint firstItem="iVO-la-gE1" firstAttribute="width" secondItem="oY4-K1-Mmw" secondAttribute="width" id="H8O-B4-Dzn"/>
+                                                        <constraint firstItem="9i4-Sc-369" firstAttribute="width" secondItem="oY4-K1-Mmw" secondAttribute="width" id="X5Z-c3-Mxv"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -429,8 +436,8 @@
                                     <constraints>
                                         <constraint firstItem="EdI-oD-v6f" firstAttribute="leading" secondItem="JmT-xr-3ii" secondAttribute="leadingMargin" constant="20" id="BBf-B6-syU"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="EdI-oD-v6f" secondAttribute="trailing" constant="20" id="SAR-jH-URF"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="EdI-oD-v6f" secondAttribute="bottom" constant="8" id="nta-Fh-ovT"/>
-                                        <constraint firstItem="EdI-oD-v6f" firstAttribute="top" secondItem="JmT-xr-3ii" secondAttribute="topMargin" constant="8" id="vxl-ho-Npk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="EdI-oD-v6f" secondAttribute="bottom" constant="20" id="nta-Fh-ovT"/>
+                                        <constraint firstItem="EdI-oD-v6f" firstAttribute="top" secondItem="JmT-xr-3ii" secondAttribute="topMargin" constant="20" id="vxl-ho-Npk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
