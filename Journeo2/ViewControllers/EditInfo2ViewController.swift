@@ -51,7 +51,6 @@ class EditInfo2ViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    
 }
     
     
