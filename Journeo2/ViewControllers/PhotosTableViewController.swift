@@ -14,7 +14,7 @@ class PhotosTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("hello photos")
        
     }
     
@@ -74,7 +74,15 @@ class PhotosTableViewController: UITableViewController {
         updateAlert.addAction(deletePhotoAction)
         updateAlert.addAction(cancelAction)
         
+        if let popoverController = updateAlert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
         present(updateAlert, animated: true, completion: nil)
+        
+        
         
     }
     func presentCommentUpdate(index: Int){
